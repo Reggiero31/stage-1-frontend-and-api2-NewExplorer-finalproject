@@ -43,15 +43,19 @@
   color: #526159;
   font-size: 18px;
   opacity: 0.92;
-  cursor: pointer;
+  cursor: auto;
 }
 
+.news-card__save_saved {
+  background: url("../assets/images/bookmark.svg") no-repeat center;
+}
 
-.news-card__remove-delete,.news-card__remove-delete:active {
+.news-card__remove-delete,
+.news-card__remove-delete:active {
   width: 38px;
   background-image: url("../assets/images/trash.png");
   background-position: center;
-  color: #FFF;
+  color: #fff;
   font-size: 18px;
 }
 .news-card__save:disabled {

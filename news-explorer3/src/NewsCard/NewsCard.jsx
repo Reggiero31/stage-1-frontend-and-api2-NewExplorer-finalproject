@@ -26,7 +26,7 @@ function NewsCard({ article, isLoggedIn, isSaved, onSave, onRemove }) {
             className={`news-card__save ${isSaved ? "news-card__save_saved" : ""}`}
             type="button"
             onClick={() => onSave(article)}
-            disabled={!isLoggedIn}
+           // disabled={!isLoggedIn}
             title={
               isLoggedIn
                 ? isSaved
