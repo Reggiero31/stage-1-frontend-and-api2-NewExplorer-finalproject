@@ -1,0 +1,12 @@
+.header {
+  display: flex;
+justify-content: center;
+ flex-direction: column;
+}
+
+.header__right {
+  gap: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}

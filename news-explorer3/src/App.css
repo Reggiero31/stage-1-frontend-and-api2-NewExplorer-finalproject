@@ -1,0 +1,42 @@
+.app {
+  min-height: 100vh;
+  background: #f5f6f2;
+}
+
+.app_state {
+ width: 1654px;
+ height: 1644px;
+ color: #EEE;
+}
+
+
+.app_header {
+  width: 320px;
+  height: 56px;
+  
+
+}
+
+.app_mobile_saved_news_logged_In{
+  width: 320px;
+  height: 568px;
+  color: #fff;
+}
+
+
+
+.app_mobile_main-guest {
+  width: 320px;
+  height: 568px;
+  color: #fff;
+}
+
+.app_mobile_cards-section {
+  width: 320px;
+  height: 2276px;
+  top: 302px;
+}
+
+.app_mobile_avatar {
+  
+}
