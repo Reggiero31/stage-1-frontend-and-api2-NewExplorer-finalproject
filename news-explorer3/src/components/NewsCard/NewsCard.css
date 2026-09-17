@@ -1,0 +1,114 @@
+.news-card {
+  width: 100%;
+  max-width: 400px;
+  min-height: 576px;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(23, 31, 29, 0.08);
+}
+
+.news-card__image-wrap {
+  position: relative;
+  height: 272px;
+  background: #dfe8df;
+}
+
+.news-card__image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.news-card__image_placeholder {
+  background: linear-gradient(135deg, #dfe8df, #b5ccc0);
+}
+
+.news-card__actions {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  gap: 8px;
+}
+
+.news-card__save,
+.news-card__save:active {
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 50%;
+  background: #fff url("../../assets/images/hover\ button.svg") no-repeat center;
+  color: #526159;
+  font-size: 18px;
+  opacity: 0.92;
+  cursor: pointer;
+}
+
+.news-card__save_saved {
+  background: url("../../assets/images/bookmark.svg") no-repeat center;
+}
+
+.news-card__remove-delete,
+.news-card__remove-delete:active {
+  width: 38px;
+  background-image: url("../../assets/images/trash.svg");
+  height: 38px;
+  background-position: center;
+  color: #fff;
+  font-size: 18px;
+}
+.news-card__save:disabled {
+  cursor: not-allowed;
+}
+
+.news-card__save:hover,
+.news-card__remove:hover {
+  opacity: 1;
+}
+
+.news-card__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 260px;
+  padding: 20px;
+}
+
+.news-card__date {
+  margin: 0;
+  color: #7c8880;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.news-card__title {
+  margin: 10px 0;
+  color: #17202a;
+  font:
+    700 22px/1.15 "Space Grotesk",
+    sans-serif;
+}
+
+.news-card__text {
+  margin: 0;
+  color: #4a554f;
+  font-size: 16px;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.news-card__source {
+  margin-top: auto;
+  padding-top: 18px;
+  color: #2368a0;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}

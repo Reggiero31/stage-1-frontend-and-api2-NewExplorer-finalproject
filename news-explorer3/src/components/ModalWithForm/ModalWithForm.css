@@ -1,0 +1,43 @@
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal__content-form {
+  width: min(100%, 420px);
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+.modal__content {
+  width: min(100%, 430px);
+  background: white;
+  border-radius: 8px;
+  padding: 32px;
+}
+
+.modal__title-form {
+  margin-top: 0;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal__button {
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 999px;
+  background: #347eff;
+  color: white;
+  cursor: pointer;
+  
+}
