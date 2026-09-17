@@ -1,25 +1,33 @@
 .main {
-  max-width: 1120px;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 56px 24px 0;
+  color: #ffff;
 }
 .main__intro {
   border-bottom: 1px solid #d6ddd6;
   padding-bottom: 48px;
-  background-image: url("../assets/images/background.png");
+  background-image: url("../../assets/images/background.svg");
   width: 1440px;
   height: 576px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
 }
 .main__results {
   min-height: 240px;
   padding: 42px 0;
 }
+
+.main__title {
+  color: #fff;
+  width: 608px;
+}
 .main__cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 .main__message {
   padding: 48px 0;
@@ -29,16 +37,17 @@
 }
 .main__show-more {
   display: block;
+  width: 288px;
+  height: 64px;
   margin: 34px auto 0;
-  border: 0;
-  border-radius: 2px;
+  border-radius: 80px;
   padding: 14px 32px;
-  background: #173f3a;
-  color: #fff;
-  font-weight: 700;
+  background-color: #fff;
+  font-weight: 500;
 }
 .main__show-more:hover {
-  background: #28635a;
+  background: #2f71e5;
+  opacity: 20%;
 }
 @media (max-width: 850px) {
   .main__cards {

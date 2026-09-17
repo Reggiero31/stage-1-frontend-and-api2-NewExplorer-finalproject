@@ -2,6 +2,14 @@
   max-width: 960px;
   margin: 2.5rem auto;
   padding: 0 1.5rem 2.5rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-position: 10px;
+  justify-content: center;
+  gap: 20px;
 }
 
 .about__title {
@@ -14,7 +22,7 @@
   font-size: 40px;
   line-height: 46px;
   letter-spacing: 0px;
-  color: #1a1b22;
+  color: #000;
 }
 
 .about__text {
@@ -27,12 +35,16 @@
   font-size: 18px;
   line-height: 24px;
   letter-spacing: 0px;
-  color: #1a1b22;
+  color: #000;
 }
 
 .about__avatar {
   width: 464px;
   height: 464px;
-  top: 80px;
-  left: 104px;
+  border-radius: 1000px;
+  background-color: #949494;
+ display: flex;
+  margin-top: 3.5rem;
+  margin-right:auto;
+
 }

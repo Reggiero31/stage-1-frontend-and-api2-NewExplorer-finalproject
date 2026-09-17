@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Main from "./Main/Main";
 import SearchForm from "./SearchForm/SearchForm";
-import { searchNews } from "./utils/newsApi";
+import { searchNews } from "../utils/newsApi";
 import "./App.css";
 import Header from "./Header/Header";
 import LoginModal from "./LoginModal/LoginModal";

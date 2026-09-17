@@ -28,7 +28,7 @@ function App() {
       <Header />
       <Routes>
         <Route
-          path="/"
+          path="/stage-1-frontend-and-api2-NewExplorer-finalproject/"
           element={
             <Main
               searchForm={<SearchForm onSearch={handleSearch} />}

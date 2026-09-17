@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Navigation.css";
 
 function Navigation({ isLoggedIn, username, onLogin, onLogout }) {
@@ -8,13 +9,13 @@ function Navigation({ isLoggedIn, username, onLogin, onLogout }) {
       </div>
 
       <div className="nav2">
-        <a className="navigation__link" href="/">
+        <Link className="navigation__link" to="/">
           Home
-        </a>
+        </Link>
         {isLoggedIn && (
-          <a className="navigation__link" href="/saved-news">
+          <Link className="navigation__link" to="/saved-news">
             Saved articles
-          </a>
+          </Link>
         )}
         {isLoggedIn ? (
           <button

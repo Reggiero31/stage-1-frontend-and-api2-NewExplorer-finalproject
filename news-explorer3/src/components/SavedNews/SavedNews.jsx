@@ -1,25 +1,23 @@
 import "./SavedNews.css";
 import NewsCard from "../NewsCard/NewsCard";
 
-function SavedNews({
-  articles = [],
-  onSave,
-  isLoggedIn,
-  onRemove,
-}) {
+function SavedNews({ articles = [], onSave, isLoggedIn, onRemove }) {
   return (
     <main className="saved-news">
       <section className="saved-news__content">
         <h2 className="saved-news__title">Saved News</h2>
         <p className="saved-news__subtitle">
-          Here you can review articles you’ve saved for later reading.
+          saved articles and review it later.
         </p>
         {articles.length === 0 ? (
           <p className="saved-news__empty">
             You haven&apos;t saved any articles yet.
           </p>
         ) : (
-          <button className="saved-news__clear-button" onClick={() => articles.forEach(article => onRemove(article))}>
+          <button
+            className="saved-news__clear-button"
+            onClick={() => articles.forEach((article) => onRemove(article))}
+          >
             Clear All Saved Articles
           </button>
         )}

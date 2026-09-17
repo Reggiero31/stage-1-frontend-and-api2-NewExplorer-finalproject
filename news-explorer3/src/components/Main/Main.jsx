@@ -1,6 +1,7 @@
 import NewsCard from "../NewsCard/NewsCard";
 import Preloader from "../Preloader/Preloader";
 import "./Main.css";
+import About from "../About/About";
 
 function Main({
   searchForm,
@@ -17,7 +18,10 @@ function Main({
   const visibleArticles = newsCards.slice(0, visibleCount);
   return (
     <main className="main">
-      <section className="main__intro">{searchForm}</section>
+      <section className="main__intro">
+        {" "}
+        <h1 className="main__title">What's Going on In The World?</h1> {searchForm}{" "}
+      </section>
       <section className="main__results" aria-label="News results">
         {isLoading && <Preloader />}
         {!isLoading && error && <p className="main__message">{error}</p>}
@@ -49,6 +53,7 @@ function Main({
           </button>
         )}
       </section>
+      <About />
     </main>
   );
 }

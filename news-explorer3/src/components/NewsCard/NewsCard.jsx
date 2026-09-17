@@ -1,4 +1,4 @@
-import defaultCardImage from "../assets/images/card post.png";
+import defaultCardImage from "../../assets/images/card post.png";
 import "./NewsCard.css";
 
 function NewsCard({ article, isLoggedIn, isSaved, onSave, onRemove }) {
@@ -25,8 +25,12 @@ function NewsCard({ article, isLoggedIn, isSaved, onSave, onRemove }) {
           <button
             className={`news-card__save ${isSaved ? "news-card__save_saved" : ""}`}
             type="button"
-            onClick={() => onSave(article)}
-           // disabled={!isLoggedIn}
+            onClick={() => {
+              if (isLoggedIn) {
+                onSave(article);
+              }
+            }}
+            disabled={!isLoggedIn}
             title={
               isLoggedIn
                 ? isSaved
