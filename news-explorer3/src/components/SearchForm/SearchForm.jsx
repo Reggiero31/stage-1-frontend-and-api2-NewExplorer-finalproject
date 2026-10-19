@@ -18,7 +18,7 @@ function SearchForm({ onSearch }) {
 
   return (
     <form className="search-form" onSubmit={handleSubmit}>
-      <label className="search-form__label" htmlFor="search-input">
+      <label className="search-form__label__content" htmlFor="search-input">
         Find the latest news on any topic and save them in your personal account.
       </label>
       <div className="search-form__controls">

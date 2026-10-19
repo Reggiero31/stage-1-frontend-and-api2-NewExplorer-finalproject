@@ -1,25 +1,21 @@
 .app_state {
- width: 1654px;
- height: 1644px;
- color: #EEE;
+  width: 1654px;
+  height: 1644px;
+  color: #eee;
 }
-
 
 .mobile_header {
   width: 320px;
   height: 56px;
-
 }
 
-.mobile_saved_news_logged_In{
+.mobile_saved_news_logged_In {
   width: 320px;
   height: 568px;
   color: #fff;
 }
 
-.mobile_
-
-.mobile_main-guest {
+.mobile_ .mobile_main-guest {
   width: 320px;
   height: 568px;
   color: #fff;
@@ -31,6 +27,10 @@
   top: 302px;
 }
 
-
-
-
+@media screen and (max-width: 627px) {
+  .mobile__media_main-screen {
+    width: 320px;
+    height: 566px;
+    opacity: 50%;
+  }
+}

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Footer from "../components/Footer/Footer";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Main from "./Main/Main";
 import SearchForm from "./SearchForm/SearchForm";
@@ -150,9 +151,7 @@ function App() {
           onSwitchToLogin={openLogin}
         />
       )}
-      <footer className="footer">
-        News Explorer <span>© 2026</span>
-      </footer>
+      <Footer/>
     </div>
   );
 }
