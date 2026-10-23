@@ -20,7 +20,8 @@ function Main({
     <main className="main">
       <section className="main__intro">
         {" "}
-        <h1 className="main__title">What's Going on In The World?</h1> {searchForm}{" "}
+        <h1 className="main__title">What's Going on In The World?</h1>{" "}
+        {searchForm}{" "}
       </section>
       <section className="main__results" aria-label="News results">
         {isLoading && <Preloader />}

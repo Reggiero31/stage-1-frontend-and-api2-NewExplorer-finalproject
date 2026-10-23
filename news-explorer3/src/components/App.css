@@ -4,26 +4,21 @@
 }
 
 .app_state {
- width: 1654px;
- height: 1644px;
- color: #EEE;
+  width: 1654px;
+  height: 1644px;
+  color: #eee;
 }
-
 
 .app_header {
   width: 320px;
   height: 56px;
-  
-
 }
 
-.app_mobile_saved_news_logged_In{
+.app_mobile_saved_news_logged_In {
   width: 320px;
   height: 568px;
   color: #fff;
 }
-
-
 
 .app_mobile_main-guest {
   width: 320px;
@@ -36,4 +31,3 @@
   height: 2276px;
   top: 302px;
 }
-

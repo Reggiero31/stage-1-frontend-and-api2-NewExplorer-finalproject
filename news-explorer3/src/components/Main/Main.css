@@ -71,8 +71,13 @@
     background-size: cover;
   }
   .main__title {
-    height: auto;
-    font-size: 32px;
+    height: 80px;
+    width: 285px;
+    top: 86px;
+    left: 19px;
+    color: #fff;
+
+    font-size: 36px;
     line-height: 1.15;
   }
   .main__results {

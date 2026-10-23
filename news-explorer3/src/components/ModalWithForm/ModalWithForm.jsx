@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import "./ModalWithForm.css";
 
 function ModalWithForm({
@@ -6,27 +7,60 @@ function ModalWithForm({
   buttonText = "Save",
   onSubmit,
   onClose,
-  textModal = "signup",
+  switchText,
+  onSwitch,
 }) {
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [onClose]);
+
   return (
-    <div className="modal" role="dialog" aria-modal="true" onClick={onClose}>
-      <div className="modal__content">
-        <button  className="modal__close-button"type="button" onClick={onClose} aria-label="Close">
-          ×
-        </button>
-        <h2 className="modal__title">{title}</h2>
-        <form
-          className="modal__form"
-          onSubmit={onSubmit}
-          onClick={(event) => event.stopPropagation()}
+    <div
+      className="modal"
+      onMouseDown={(event) => {
+        if (event.target === event.currentTarget) {
+          onClose();
+        }
+      }}
+    >
+      <div
+        className="modal__content"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+      >
+        <button
+          className="modal__close-button"
+          type="button"
+          onClick={onClose}
+          aria-label="Close"
+
         >
+        </button>
+        <h2 className="modal__title" id="modal-title">
+          {title}
+        </h2>
+        <form className="modal__form" onSubmit={onSubmit} noValidate>
           {children}
           <button className="modal__button" type="submit">
             {buttonText}
           </button>
-          <button className="modal__signup-button" type="button" onClick={onClose} aria-label="Switch to sign up">
-           {textModal} 
-          </button>
+          {switchText && onSwitch && (
+            <button
+              className="modal__switch-button"
+              type="button"
+              onClick={onSwitch}
+            >
+              {switchText}
+            </button>
+          )}
         </form>
       </div>
     </div>

@@ -151,7 +151,7 @@ function App() {
           onSwitchToLogin={openLogin}
         />
       )}
-      <Footer/>
+      <Footer />
     </div>
   );
 }
