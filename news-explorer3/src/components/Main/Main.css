@@ -1,37 +1,51 @@
 .main {
-  max-width: 1440px;
   width: 100%;
+  max-width: 1440px;
   margin: 0 auto;
-  color: #ffff;
+  color: #1a1b22;
 }
 .main__intro {
-  border-bottom: 1px solid #d6ddd6;
-  padding-bottom: 48px;
-  width: 100%;
-  height: 576px;
-  background-color: #f5f6f7;
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  gap: 24px;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 576px;
+  padding: 80px 24px 48px;
+  border-bottom: 1px solid #d6ddd6;
+  background-color: #1a1b22;
   background-image: url("../../assets/images/background.svg");
+  background-position: center;
+  background-size: cover;
 }
 .main__results {
   min-height: 240px;
-  padding: 42px 0;
+  padding: 42px 24px;
+  background: #f5f6f7;
+}
+
+.main__results-title {
+  max-width: 1232px;
+  margin: 0 auto 32px;
+  font-family: "Roboto Slab", serif;
+  font-size: 32px;
+  font-weight: 400;
 }
 
 .main__title {
-  color: #fff;
   width: min(608px, 100%);
-  height: 128px;
+  margin: 0 0 24px;
+  color: #fff;
+  font-family: "Roboto Slab", serif;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: center;
 }
 .main__cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
-  padding: 0 24px;
 }
 .main__message {
   padding: 48px 0;
@@ -58,37 +72,38 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
-@media (max-width: 560px) {
-  .main {
-    padding-top: 0;
-  }
+@media (max-width: 600px) {
   .main__intro {
-    min-height: 536px;
-    height: auto;
-    padding: 104px 16px 32px;
-    gap: 20px;
+    min-height: 568px;
+    padding: 112px 16px 40px;
+    align-items: stretch;
     background-position: center;
-    background-size: cover;
   }
-  .main__title {
-    height: 80px;
-    width: 285px;
-    top: 86px;
-    left: 19px;
-    color: #fff;
 
+  .main__title {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 0 32px;
     font-size: 36px;
-    line-height: 1.15;
+    line-height: 1.12;
+    text-align: left;
   }
+
   .main__results {
     min-height: 0;
     padding: 24px 16px;
   }
+
+  .main__results-title {
+    margin-bottom: 24px;
+    font-size: 30px;
+  }
+
   .main__cards {
     grid-template-columns: 1fr;
-    padding: 0;
     gap: 16px;
   }
+
   .main__show-more {
     width: 100%;
     max-width: 288px;

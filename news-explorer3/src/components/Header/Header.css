@@ -4,30 +4,25 @@
   height: 80px;
   margin: 0 auto -80px auto;
   color: #fff;
+  position: relative;
+  z-index: 2;
 }
 
-.header_text {
-  width: 200px;
-  height: 24px;
-  background-color: #ffff;
+.header--saved {
+  max-width: none;
+  margin: 0 auto;
+  color: #1a1b22;
+  background: #fff;
+  border-bottom: 1px solid #d1d2d6;
 }
 
-.header__right {
-  gap: 20px;
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-}
-
-@media (max-width: 520px) {
+@media (max-width: 600px) {
   .header {
-    width: 320px;
     height: 56px;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 20px;
+    margin-bottom: -56px;
   }
-  .header_text {
-    width: 200px;
+
+  .header--saved {
+    margin-bottom: 0;
   }
 }

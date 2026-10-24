@@ -1,11 +1,15 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Navigation.css";
 import { useState } from "react";
 
-function Navigation({ isLoggedIn, username, onLogin, onLogout }) {
+function Navigation({ isLoggedIn, username, onLogin, onLogout, isSavedNews }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <nav className="navigation" aria-label="Primary navigation">
+    <nav
+      className={`navigation${isSavedNews ? " navigation--saved" : ""}`}
+      aria-label="Primary navigation"
+    >
       <div className="nav1">
         <h1>News Explorer</h1>
         <button
@@ -15,26 +19,41 @@ function Navigation({ isLoggedIn, username, onLogin, onLogout }) {
           aria-expanded={isMenuOpen}
           aria-controls="navigation-menu"
           onClick={() => setIsMenuOpen((previouslyOpen) => !previouslyOpen)}
-        />
+        >
+          <span />
+          <span />
+          <span />
+        </button>
       </div>
 
       <div
         id="navigation-menu"
         className={isMenuOpen ? "nav2 nav2--open" : "nav2"}
       >
-        <Link className="navigation__link" to="/">
+        <NavLink
+          className="navigation__link"
+          to="/"
+          onClick={() => setIsMenuOpen(false)}
+        >
           Home
-        </Link>
+        </NavLink>
         {isLoggedIn && (
-          <Link className="navigation__link" to="/saved-news">
+          <NavLink
+            className="navigation__link"
+            to="/saved-news"
+            onClick={() => setIsMenuOpen(false)}
+          >
             Saved articles
-          </Link>
+          </NavLink>
         )}
         {isLoggedIn ? (
           <button
             className="navigation__button"
             type="button"
-            onClick={onLogout}
+            onClick={() => {
+              setIsMenuOpen(false);
+              onLogout();
+            }}
           >
             {username || "Sign out"}
           </button>
@@ -42,7 +61,10 @@ function Navigation({ isLoggedIn, username, onLogin, onLogout }) {
           <button
             className="navigation__button"
             type="button"
-            onClick={onLogin}
+            onClick={() => {
+              setIsMenuOpen(false);
+              onLogin();
+            }}
           >
             Sign in
           </button>

@@ -9,6 +9,7 @@ import Header from "./Header/Header";
 import LoginModal from "./LoginModal/LoginModal";
 import RegisterModal from "./RegisterModal/RegisterModal";
 import SavedNews from "./SavedNews/SavedNews";
+import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -16,6 +17,7 @@ function App() {
   const [error, setError] = useState("");
   const [hasSearched, setHasSearched] = useState(false);
   const [visibleCount, setVisibleCount] = useState(3);
+  const [searchKeyword, setSearchKeyword] = useState("");
   const [user, setUser] = useState(() => {
     const savedUser = localStorage.getItem("news-explorer-user");
     return savedUser ? JSON.parse(savedUser) : null;
@@ -29,6 +31,7 @@ function App() {
   const isLoggedIn = Boolean(user);
 
   const handleSearch = async (query) => {
+    setSearchKeyword(query);
     setIsLoading(true);
     setError("");
     setHasSearched(true);
@@ -51,7 +54,7 @@ function App() {
     const isSaved = savedArticles.some((saved) => saved.url === article.url);
     const nextSaved = isSaved
       ? savedArticles.filter((saved) => saved.url !== article.url)
-      : [...savedArticles, article];
+      : [...savedArticles, { ...article, keyword: searchKeyword }];
     setSavedArticles(nextSaved);
     localStorage.setItem("news-explorer-saved", JSON.stringify(nextSaved));
   };
@@ -124,12 +127,19 @@ function App() {
         <Route
           path="/saved-news"
           element={
-            <SavedNews
-              articles={savedArticles}
-              onSave={handleSave}
-              onRemove={handleSave}
-              isLoggedIn={isLoggedIn}
-            />
+            <ProtectedRoute isLoggedIn={isLoggedIn}>
+              <SavedNews
+                articles={savedArticles}
+                onSave={handleSave}
+                onRemove={handleSave}
+                isLoggedIn={isLoggedIn}
+                username={user?.username}
+                onClear={() => {
+                  setSavedArticles([]);
+                  localStorage.setItem("news-explorer-saved", "[]");
+                }}
+              />
+            </ProtectedRoute>
           }
         />
       </Routes>

@@ -1,13 +1,38 @@
 import "./SavedNews.css";
 import NewsCard from "../NewsCard/NewsCard";
 
-function SavedNews({ articles = [], onSave, isLoggedIn, onRemove }) {
+function SavedNews({
+  articles = [],
+  onSave,
+  isLoggedIn,
+  onRemove,
+  onClear,
+  username,
+}) {
+  const keywords = [
+    ...new Set(articles.map((article) => article.keyword).filter(Boolean)),
+  ];
+  const visibleKeywords = keywords.slice(0, 2);
+  const remainingKeywords = keywords.length - visibleKeywords.length;
+
   return (
     <main className="saved-news">
       <section className="saved-news__content">
-        <h2 className="saved-news__title">Saved News</h2>
+        <p className="saved-news__eyebrow">Saved articles</p>
+        <h1 className="saved-news__title">
+          {username || "You"}, you have {articles.length} saved{" "}
+          {articles.length === 1 ? "article" : "articles"}
+        </h1>
         <p className="saved-news__subtitle">
-          saved articles and review it later.
+          By keywords:{" "}
+          {visibleKeywords.length > 0 ? (
+            <strong>
+              {visibleKeywords.join(", ")}
+              {remainingKeywords > 0 && `, and ${remainingKeywords} other`}
+            </strong>
+          ) : (
+            <span>none yet</span>
+          )}
         </p>
         {articles.length === 0 ? (
           <p className="saved-news__empty">
@@ -16,7 +41,8 @@ function SavedNews({ articles = [], onSave, isLoggedIn, onRemove }) {
         ) : (
           <button
             className="saved-news__clear-button"
-            onClick={() => articles.forEach((article) => onRemove(article))}
+            type="button"
+            onClick={onClear}
           >
             Clear All Saved Articles
           </button>
@@ -29,6 +55,7 @@ function SavedNews({ articles = [], onSave, isLoggedIn, onRemove }) {
                 article={article}
                 isLoggedIn={isLoggedIn}
                 isSaved
+                keyword={article.keyword}
                 onSave={() => onSave(article)}
                 onRemove={() => onRemove(article)}
               />

@@ -1,7 +1,6 @@
-import defaultCardImage from "../../assets/images/card post.png";
 import "./NewsCard.css";
 
-function NewsCard({ article, isLoggedIn, isSaved, onSave, onRemove }) {
+function NewsCard({ article, isLoggedIn, isSaved, onSave, onRemove, keyword }) {
   const publicationDate = article.publishedAt
     ? new Date(article.publishedAt).toLocaleDateString("en-US", {
         month: "long",
@@ -10,38 +9,48 @@ function NewsCard({ article, isLoggedIn, isSaved, onSave, onRemove }) {
       })
     : "";
 
-  const imageSrc = article.urlToImage || defaultCardImage;
+  const imageSrc = article.urlToImage;
 
   return (
     <article className="news-card">
       <div className="news-card__image-wrap">
-        <img
-          src={imageSrc}
-          alt={article.title || "News article thumbnail"}
-          className="news-card__image"
-        />
-
-        <div className="news-card__actions">
-          <button
-            className={`news-card__save ${isSaved ? "news-card__save_saved" : ""}`}
-            type="button"
-            onClick={() => {
-              if (isLoggedIn) {
-                onSave(article);
-              }
-            }}
-            disabled={!isLoggedIn}
-            title={
-              isLoggedIn
-                ? isSaved
-                  ? "Saved article"
-                  : "Save article"
-                : "Sign in to save articles."
-            }
-            aria-label={
-              isLoggedIn ? "Save article" : "Sign in to save articles."
-            }
+        {imageSrc ? (
+          <img
+            src={imageSrc}
+            alt={article.title || "News article thumbnail"}
+            className="news-card__image"
           />
+        ) : (
+          <div
+            className="news-card__image news-card__image_placeholder"
+            aria-hidden="true"
+          />
+        )}
+
+        {keyword && <span className="news-card__keyword">{keyword}</span>}
+        <div className="news-card__actions">
+          {!onRemove && (
+            <button
+              className={`news-card__save ${isSaved ? "news-card__save_saved" : ""}`}
+              type="button"
+              onClick={() => {
+                if (isLoggedIn) {
+                  onSave(article);
+                }
+              }}
+              disabled={!isLoggedIn}
+              title={
+                isLoggedIn
+                  ? isSaved
+                    ? "Saved article"
+                    : "Save article"
+                  : "Sign in to save articles."
+              }
+              aria-label={
+                isLoggedIn ? "Save article" : "Sign in to save articles."
+              }
+            />
+          )}
           {isSaved && onRemove && (
             <button
               className="news-card__remove"

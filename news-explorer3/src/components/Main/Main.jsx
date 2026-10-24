@@ -20,10 +20,13 @@ function Main({
     <main className="main">
       <section className="main__intro">
         {" "}
-        <h1 className="main__title">What's Going on In The World?</h1>{" "}
+        <h1 className="main__title">What&apos;s going on in the world?</h1>{" "}
         {searchForm}{" "}
       </section>
       <section className="main__results" aria-label="News results">
+        {hasSearched && !isLoading && !error && newsCards.length > 0 && (
+          <h2 className="main__results-title">Search results</h2>
+        )}
         {isLoading && <Preloader />}
         {!isLoading && error && <p className="main__message">{error}</p>}
         {!isLoading && !error && newsCards.length === 0 && hasSearched && (
