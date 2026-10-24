@@ -7,7 +7,9 @@ function Navigation({ isLoggedIn, username, onLogin, onLogout, isSavedNews }) {
 
   return (
     <nav
-      className={`navigation${isSavedNews ? " navigation--saved" : ""}`}
+      className={`navigation${isSavedNews ? " navigation--saved" : ""}${
+        isMenuOpen ? " navigation--menu-open" : ""
+      }`}
       aria-label="Primary navigation"
     >
       <div className="nav1">
@@ -20,7 +22,6 @@ function Navigation({ isLoggedIn, username, onLogin, onLogout, isSavedNews }) {
           aria-controls="navigation-menu"
           onClick={() => setIsMenuOpen((previouslyOpen) => !previouslyOpen)}
         >
-          <span />
           <span />
           <span />
         </button>

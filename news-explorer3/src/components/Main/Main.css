@@ -27,7 +27,7 @@
 .main__results-title {
   max-width: 1232px;
   margin: 0 auto 32px;
-  font-family: "Roboto Slab", serif;
+  font-family: "Roboto Slab", Georgia, serif;
   font-size: 32px;
   font-weight: 400;
 }
@@ -36,7 +36,7 @@
   width: min(608px, 100%);
   margin: 0 0 24px;
   color: #fff;
-  font-family: "Roboto Slab", serif;
+  font-family: "Roboto Slab", Georgia, serif;
   font-size: 40px;
   font-weight: 400;
   line-height: 1.2;
