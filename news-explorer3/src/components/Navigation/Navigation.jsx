@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import "./Navigation.css";
 import { useState } from "react";
+import signoutIcon from"../../assets/images/signout.svg"
 
 function Navigation({ isLoggedIn, username, onLogin, onLogout, isSavedNews }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -57,6 +58,7 @@ function Navigation({ isLoggedIn, username, onLogin, onLogout, isSavedNews }) {
             }}
           >
             {username || "Sign out"}
+            <img src={signoutIcon} alt="Sign out" />
           </button>
         ) : (
           <button
