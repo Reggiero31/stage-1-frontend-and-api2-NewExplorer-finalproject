@@ -13,7 +13,7 @@ function ModalWithForm({
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === "Escape") {
-        onClose();
+        onClose(event);
       }
     };
 
@@ -26,7 +26,7 @@ function ModalWithForm({
       className="modal"
       onMouseDown={(event) => {
         if (event.target === event.currentTarget) {
-          onClose();
+          onClose(event);
         }
       }}
     >
