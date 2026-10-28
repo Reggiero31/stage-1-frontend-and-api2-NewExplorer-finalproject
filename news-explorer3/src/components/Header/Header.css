@@ -1,0 +1,28 @@
+.header {
+  width: 100%;
+  max-width: 1440px;
+  height: 80px;
+  margin: 0 auto -80px auto;
+  color: #fff;
+  position: relative;
+  z-index: 2;
+}
+
+.header--saved {
+  max-width: none;
+  margin: 0 auto;
+  color: #1a1b22;
+  background: #fff;
+  border-bottom: 1px solid #d1d2d6;
+}
+
+@media (max-width: 600px) {
+  .header {
+    height: 56px;
+    margin-bottom: -56px;
+  }
+
+  .header--saved {
+    margin-bottom: 0;
+  }
+}
